@@ -2,7 +2,8 @@ import xlrd
 
 loc = ("Languages.xlsx")
 
-LocalizationFile = open("Localization_GENERATED.cs","w", encoding="utf-8")
+LocalizationFile = open("Localization_GENERATED.cs","a", encoding="utf-8")
+LocalizationFile.truncate(0)
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
 
@@ -210,3 +211,5 @@ LocalizationFile.write("            }\n")
 LocalizationFile.write("        }\n")
 LocalizationFile.write("    }\n")
 LocalizationFile.write("}\n")
+
+LocalizationFile.close()
